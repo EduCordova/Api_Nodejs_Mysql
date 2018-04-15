@@ -260,6 +260,8 @@ app.get('/api/rendiciones',(req,res)=>{
         })
     })
 
+
+    //update reporte
     app.put('/api/reporte/rendicion/:id1/:id2',(req,res)=>{
 
         const data = {
@@ -283,6 +285,24 @@ app.get('/api/rendiciones',(req,res)=>{
         })
     })
     
+
+    //DELETE REPORTE
+    app.delete('/api/reporte/:id',(req,res)=>{
+        const id = req.params.id
+
+        Query.deleteReporteId(id,(err,data)=>{
+            if(data && data.msg === 'deleted'  ){
+                res.status(200).json({
+                    success:'true',
+                    data
+                })
+            }else{
+                res.status(500).json({
+                    msg:'error'
+                })
+            }
+        })
+    })
 
 }
 

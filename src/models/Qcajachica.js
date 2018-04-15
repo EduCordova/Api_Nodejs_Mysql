@@ -317,4 +317,16 @@ dataModel.updateReporte = (data, cb) => {
         })
 }
 
+dataModel.deleteReporteId = (id,cb)=>{
+    connection.query(`DELETE FROM reporte WHERE id_reporte = ?`,[id])
+        .then(rs=>{
+            cb(null,{
+                "msg":"deleted"
+            })
+        })
+        .catch(err=>{
+            console.log(`Error generado: ${err}`)
+        })
+}
+
 module.exports = dataModel
