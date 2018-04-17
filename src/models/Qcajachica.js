@@ -7,10 +7,12 @@ const mysql = require('promise-mysql')
 
 var connection = mysql.createPool({
     host: 'localhost',
-    user: 'mysql',
-    password: 'root',
-    database: 'cajachica',
+  user: 'mysql',
+  password: 'root',
+  database: 'cajachica',
     connectionLimit: 10
+    
+
 })
 
 var queryReporte = `
