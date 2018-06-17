@@ -25,7 +25,7 @@ SELECT
     cl.desc_clase clase,
     r.numero,
     r.dni_ruc,
-    pt.desc_proveedor proveedor,
+    r.proveedor_id proveedor,
     r.detalle_gasto,
     r.importe,
     cc.concepto_gasto concepto,
@@ -37,7 +37,6 @@ FROM reporte r
     INNER JOIN rendicion ren ON ren.id_rendicion = r.rendicion_id
     INNER JOIN meta m ON m.id_meta = r.meta_id
     INNER JOIN area a ON a.id_area = r.area_id
-    INNER JOIN proveedor pt ON pt.id_proveedor = r.proveedor_id
     INNER JOIN partida par ON par.id_partida = r.partida_id
     INNER JOIN programa pro ON pro.id_programa = r.programa_id
     INNER JOIN clase cl ON cl.id_clase  = r.clase_id
